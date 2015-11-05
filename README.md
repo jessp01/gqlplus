@@ -150,8 +150,12 @@ LICENSE for details.
 
 gqlplus is written and maintained by Ljubomir J. Buturovic of San
 Francisco State University, San Francisco, California and Jess Portnoy. 
+
+
 For all comments and problem reports drop a line:
+
 ljubomir@sfsu.edu 
+
 kernel01@gmail.com
 
 
