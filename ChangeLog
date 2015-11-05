@@ -1,0 +1,150 @@
+Changes from 1.9 to 1.10
+************************
+
+05-10-2005
+
+	- fix endless loop in file_set_editor() (contributed by Jeff Mital)
+
+05-13-2005
+
+	- use Autoconf to build gqlplus. Distribute readline library with
+	the program to ease porting.
+
+05-18-2005
+
+	- fix /nolog handling (fix partially contributed by Christophe
+	Borivant)
+
+05-19-2005
+
+	- remove strtok_r() to improve portability
+
+05-21-2005
+
+	- correctly handle `set time on' command in the presence of
+	user-defined SQL prompt.
+	
+
+05-22-2005
+
+	- add support for Oracle `instantclient'
+	
+
+
+Changes from 1.10 to 1.11
+*************************
+
+06-21-2005
+
+	- link with ncurses library instead of the obsolete curses
+
+06-23-2005
+
+	- pass NLS_COMP and NLS_SORT environment variables to sqlplus
+
+07-02-2005
+
+	- disable table-name completion if we cannot parse table
+	information returned by the ALL_TABLES/ALL_VIEWS query.
+
+12-08-2005
+
+	- fix /nolog crash (reported by Susan Wilson)
+	
+01-21-2006
+
+	- detect abnormal sqlplus termination 
+	
+01-21-2006
+
+	- after the CONNECT command, rescan tables for completion
+	
+
+Changes between 1.11 and 1.12
+*****************************
+
+01-24-2006
+
+	- fix SIGSEGV when using SQLPATH
+
+01-29-2006
+
+	- implement ACCEPT command
+
+03-27-2006
+
+	- add DYLD_LIBRARY_PATH environment variable (the Mac OSX version
+	of LD_LIBRARY_PATH)
+
+07-15-2006
+
+	- add environment variable NLS_DATE_FORMAT. Contributed by
+	Yen-Ming Lee.
+	
+07-16-2006
+
+	- introduce `-p' command-line switch to optionally display
+	progress report and elapsed time information. Contributed by Mark
+	Harrison of Pixar.
+	
+07-16-2006
+
+	- improve const_correctness. Contributed by Markus Elfring.
+
+08-05-2006
+
+	- use SIGTERM to kill sqlplus
+
+10-03-2006
+
+	- add ORACLE_PATH to the environment. Contributed by Grant
+	Hollingworth.
+
+12-02-2006
+
+	- use EDITOR environment variable to define the editor
+
+Changes between 1.12 and 1.13
+*****************************
+	
+11-20-2011	12:13:14	Jess Portnoy <kernel01@gmail.com>
+ - Introduced ENV var called SQLPLUS_BIN. 
+ This is to support Oracle instantclient installations on 64bit 
+ that do not call the binary sqlplus but rather sqlplus64.
+ - Added mkinstalldirs script to source basedir
+ - Introduced ENV var called EMACS_MODE. If setted, gqlplus is assumed
+ to be launched from Emacs. 
+ Emacs maps Ctrl-G to send SIGINT (instead of Ctrl-C). 
+ So, during Emacs editing session we don't want to pass to it 
+ sqlplus because it disrupts its' operation and does not make sense
+ since that is not the interrupt we want to catch.
+
+Changes between 1.13 and 1.14
+*****************************
+	
+12-18-2011	20:15:07	Jess Portnoy <kernel01@gmail.com>
+- Removed dependency of bundled readline. Though it is still shipped with the source code, one would have to explicitly ask to build it. We do not link against a static archive of ncurses why should we in the case of readline?
+- Minor maintenance of the autotools files
+
+Changes between 1.14 and 1.15
+*****************************
+	
+01-23-2012	20:15:07	Jess Portnoy <kernel01@gmail.com>
+- Use mkstemp() instead tmpnam() - patch suggestion made by Stefan Kuttler.
+- Code also honors TMPDIR,  TEMPDIR and TEMP ENV vars [in that order], otherwise, defaults to /tmp.]
+
+Changes between 1.15 and 1.16
+*****************************
+08-08-2014	20:00:07	Jess Portnoy <kernel01@gmail.com>
+- patch by Philip Marsh <marsh@philipmarsh.org> for MAC OSX.
+  0) Status Fatal: tmpdir is far too small for OSX which uses 80+? for a
+  mkstemp filename. I have arbitrarily increased it to 500.
+ 
+  1) Status Fatal: Using mkstemp and fdopen to handle a file is
+  inappropiate and unnecessary.
+ 
+  2) Status Idiosyncratic: The use of a second pointer (tmpname) to
+  replace tmpdir is unnecessary and a little confusing(at the time).
+ 
+  3) Status Fatal: OSX requires double quotes around the connect string,
+  similar to your define for GET_PROMPT
