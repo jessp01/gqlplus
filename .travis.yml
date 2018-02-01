@@ -7,7 +7,7 @@ language: c
 compiler:
     - clang
     - gcc
-script: rm configure Makefile;  autoreconf --install && ./configure && make && make install
+script: rm configure Makefile;  autoreconf --install && ./configure && make && sudo make install
 notifications:
   email:
     recipients:
