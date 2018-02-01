@@ -38,6 +38,7 @@ gqlplus-n.n-n.%{_arch}.src.rpm is also available.
 
 To build gqlplus for another UNIX-like platform, type:
 ```
+$ autoreconf --install
 $ ./configure
 $ make
 ```
