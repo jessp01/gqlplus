@@ -70,7 +70,7 @@ $ORACLE_HOME/bin, followed by the local directory.
    that do not call the binary sqlplus but rather sqlplus64.
 
  - EMACS_MODE:
-   If setted, gqlplus is assumed to be launched from Emacs. 
+   If set, gqlplus is assumed to be launched from Emacs. 
    Emacs maps Ctrl-G to send SIGINT (instead of Ctrl-C). 
    So, during Emacs editing session we don't want to pass to it 
    sqlplus because it disrupts its' operation and does not make sense
