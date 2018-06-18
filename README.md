@@ -1,3 +1,13 @@
+# IMPORTANT NOTICE
+This project is now hosted at [GitLab](https://gitlab.com/jessp011/gqlplus).
+
+Unlike GitHub, the fine folks at GitLab understand what FOSS actually is and they ACTIVELY contribute to it and their own code is FOSS as well, see: https://gitlab.com/gitlab-org. 
+
+They also have a fine CI of their own and they even took the time to build a very easy to use GitHub to GitLab export/import mechanism: https://docs.gitlab.com/ee/user/project/import/github.html
+
+If you care about FOSS at all, I suggest you move your own GH projects there as well.
+Ah, and of course, perhaps their biggest advantage: they are not owned by MS.
+
 ## WHAT IS GQLPLUS?
 
 gqlplus is a UNIX front-end program for Oracle's command-line utility
